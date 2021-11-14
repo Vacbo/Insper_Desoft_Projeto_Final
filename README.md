@@ -3,7 +3,7 @@ Descrição:
    Um jogo de ritmo
 
 
-Desenvolvedores:
+Desenvolvedores: \n
     Guilherme-s-m
     glindenberg
     Vacbo
