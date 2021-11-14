@@ -3,8 +3,8 @@ Descrição:
    Um jogo de ritmo
 
 
-Desenvolvedores: \n
-    Guilherme-s-m
-    glindenberg
+Desenvolvedores:
+    Guilherme-s-m, 
+    glindenberg, 
     Vacbo
     
