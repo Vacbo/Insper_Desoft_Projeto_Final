@@ -33,7 +33,6 @@ class Bolinha(sprite.Sprite):
             self.remove()'''
 
 game= True
-
 ## Variável para o ajuste de velocidade
 clock = pygame.time.Clock()
 FPS = 60
