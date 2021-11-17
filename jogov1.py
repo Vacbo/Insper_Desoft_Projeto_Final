@@ -7,6 +7,9 @@ display.set_caption('Taiko no Chi')
 
 game= True
 
+sprites = {}
+sprites['bolinha'] = pygame.image.load('sprites/input_b.png')
+
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
