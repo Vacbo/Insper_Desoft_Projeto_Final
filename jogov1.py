@@ -52,9 +52,12 @@ FPS = 60
 #Criando Grupos de Sprites
 all_sprites = pygame.sprite.Group()
 all_bolinhas = pygame.sprite.Group()
+all_players = pygame.sprite.Group()
 #Criando o hitbox do player
-player=BolinhaPlayer(sprites['bolinha3'])
-all_sprites.add(player)
+for i in range(2):
+    player=BolinhaPlayer(sprites['bolinha3'])
+    all_sprites.add(player)
+    all_players.add(player)
 #Criando hitbox dos 'inimigos'
 for i in range(2):
     bolinha_vermelha1=Bolinha(sprites['bolinha1'])
@@ -80,10 +83,10 @@ while game:
     pygame.display.update()
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_f or event.key == pygame.K_j:
-            we
+            
 
         if event.key == pygame.K_d or event.key == pygame.K_k:
 
-
+hits=
 
                 pygame.quit()
