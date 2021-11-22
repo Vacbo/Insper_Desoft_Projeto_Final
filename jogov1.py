@@ -32,13 +32,42 @@ class Bolinha(sprite.Sprite):
         ''' if self.rect.left > 1280:
             self.remove()'''
 
+class BolinhaPlayer(sprite.Sprite):
+    def __init__(self,img):
+        # Construtor da classe mãe (Sprite).
+        sprite.Sprite.__init__(self)
+        self.imgs=[]
+        self.imgs.append(image.load('sprites/input_judge.png').convert_alpha())
+        self.image=sprites['bolinha3']
+        self.mask=mask.from_surface(self.image)
+        self.rect=self.image.get_rect()
+        self.rect.x=350
+        self.rect.y=310
+
 game= True
 ## Variável para o ajuste de velocidade
 clock = pygame.time.Clock()
 FPS = 60
 
-#Criando as bolinhas
-bolinha_vermelha1=Bolinha(sprites['bolinha2'])
+#Criando Grupos de Sprites
+all_sprites = pygame.sprite.Group()
+all_bolinhas = pygame.sprite.Group()
+#Criando o hitbox do player
+player=BolinhaPlayer(sprites['bolinha3'])
+all_sprites.add(player)
+#Criando hitbox dos 'inimigos'
+for i in range(2):
+    bolinha_vermelha1=Bolinha(sprites['bolinha1'])
+    all_sprites.add(bolinha_vermelha1)
+    all_bolinhas.add(bolinha_vermelha1)
+
+for i in range(2):
+    bolinha_azul1=Bolinha(sprites['bolinha1'])
+    all_sprites.add(bolinha_azul1)
+    all_bolinhas.add(bolinha_azul1)
+
+
+
 
 while game:
     clock.tick(FPS)
@@ -51,10 +80,10 @@ while game:
     pygame.display.update()
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_f or event.key == pygame.K_j:
-            
+            we
 
         if event.key == pygame.K_d or event.key == pygame.K_k:
 
 
 
-pygame.quit()
+                pygame.quit()
