@@ -1,26 +1,30 @@
-from pygame import *
 import pygame
+import os
+from config import *
+from assets import * 
+from musica1 import *
 
-init()
-window=display.set_mode((1280,720))
-display.set_caption('Taiko no Chi')
+#Inicia o jogo
+pygame.init()
+window=pygame.display.set_mode((WIDTH,HEIGHT))
+pygame.display.set_caption('Taiko no Chi')
 
-sprites = {}
-sprites['bolinha1'] = pygame.image.load('sprites/input_b.png')
-sprites['bolinha2'] = pygame.image.load('sprites/input_r.png')
-sprites['bolinha2']=pygame.transform.scale(sprites['bolinha2'],(82,82))
-sprites['bolinha3'] = pygame.image.load('sprites/input_judge.png')
-sprites['linha'] = pygame.image.load('sprites/move_line.png')
+#funcão que recebe qual bolinha deve ser pressionada e devolve o tempo que a bolinha tem que ser criada
+def Timing(tempo_de_duracao):
+    tempo_de_duracao=int(tempo_de_duracao)
+    tempo_para_criar_bolinha=tempo_de_duracao-1585
+    return tempo_para_criar_bolinha
+
 # ----- Inicia estruturas de dados
 # Definindo os novos tipos
 class Bolinha(sprite.Sprite):
     def __init__(self, img):
         # Construtor da classe mãe (Sprite).
-        sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__init__(self)
         self.imgs=[]
-        self.imgs.append(image.load('sprites/input_r.png').convert_alpha())
-        self.image=sprites['bolinha2']
-        self.mask=mask.from_surface(self.image)
+        self.imgs.append(pygame.image.load('sprites/input_r.png').convert_alpha())
+        self.image=pygame.sprites['bolinha2']
+        self.mask=pygame.mask.from_surface(self.image)
         self.rect=self.image.get_rect()
         self.rect.x = 640
         self.rect.y = 310
@@ -35,11 +39,11 @@ class Bolinha(sprite.Sprite):
 class BolinhaPlayer(sprite.Sprite):
     def __init__(self,img):
         # Construtor da classe mãe (Sprite).
-        sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__init__(self)
         self.imgs=[]
-        self.imgs.append(image.load('sprites/input_judge.png').convert_alpha())
-        self.image=sprites['bolinha3']
-        self.mask=mask.from_surface(self.image)
+        self.imgs.append(pygame.image.load('sprites/input_judge.png').convert_alpha())
+        self.image=pygame.sprites['bolinha3']
+        self.mask=pygame.mask.from_surface(self.image)
         self.rect=self.image.get_rect()
         self.rect.x=350
         self.rect.y=310
@@ -47,10 +51,13 @@ class BolinhaPlayer(sprite.Sprite):
 game= True
 ## Variável para o ajuste de velocidade
 clock = pygame.time.Clock()
-FPS = 60
+#carregar assets
+assets = carrega_assets()
 
 #Criando Grupos de Sprites
 all_sprites = pygame.sprite.Group()
+bolinhas_vermelhas = pygame.sprite.Group()
+bolinhas_azuis = pygame.sprite.Group()
 all_bolinhas = pygame.sprite.Group()
 all_players = pygame.sprite.Group()
 #Criando o hitbox do player
