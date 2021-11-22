@@ -49,6 +49,12 @@ while game:
     bolinha_vermelha1.update()        
     window.blit(bolinha_vermelha1.image,bolinha_vermelha1.rect)
     pygame.display.update()
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_f or event.key == pygame.K_j:
+            
+
+        if event.key == pygame.K_d or event.key == pygame.K_k:
+
 
 
 pygame.quit()
