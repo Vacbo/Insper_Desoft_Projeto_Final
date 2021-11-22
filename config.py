@@ -15,6 +15,9 @@ FPS=60
 bolinha_width=82
 bolinha_height=82
 
+#Tamanho da score line
+score_line_height=116
+
 INIT=0
 PLAY=1
 SCORE=2
