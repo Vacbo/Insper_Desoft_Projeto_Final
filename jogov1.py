@@ -48,22 +48,54 @@ for i in range(2):
     all_bolinhas.add(bolinha_azul1)
 
 
+state = INIT
 
-
-while game:
+#Jogo Oficial
+while state != QUIT:
     clock.tick(FPS)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            game=False
-    window.fill((255,255,255))
-    bolinha_vermelha1.update()        
-    window.blit(bolinha_vermelha1.image,bolinha_vermelha1.rect)
-    pygame.display.update()
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_f or event.key == pygame.K_j:
-            
 
-        if event.key == pygame.K_d or event.key == pygame.K_k:
+    if state == INIT:
+            # ----- Trata eventos
+        for event in pygame.event.get():
+            # ----- Verifica consequências
+            if event.type == pygame.QUIT:
+                state = QUIT
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    state = INSTRUCTIONS
+        
+        window.fill(0,0,0)
+        window.blit(assets[''imagem de início''], init_rect)
+
+    #Tela de instruções
+    if state == INSTRUCTIONS:
+            # ----- Trata eventos
+        for event in pygame.event.get():
+            # ----- Verifica consequências
+            if event.type == pygame.QUIT:
+                state = QUIT
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    state = PLAY
+
+        window.fill(0,0,0)
+        window.blit(assets[''imagem de instruções''], inst_rect)
+
+
+    # window.fill((255,255,255))
+    # bolinha_vermelha1.update()        
+    # window.blit(bolinha_vermelha1.image,bolinha_vermelha1.rect)
+    pygame.display.update()
+    if state == FASE1:
+        # ----- Trata eventos
+        for event in pygame.event.get():
+            # ----- Verifica consequências
+            if event.type == pygame.QUIT:
+                state = DONE
+            if event.type == pygame.KEYDOWN:
+                # Dependendo da tecla, altera a velocidade.
+                keys_down[event.key] = True
+                if event.key == pygame.K_LEFT:
 
 hits=
 
