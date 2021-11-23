@@ -86,15 +86,15 @@ while state != QUIT:
     # bolinha_vermelha1.update()        
     # window.blit(bolinha_vermelha1.image,bolinha_vermelha1.rect)
     pygame.display.update()
-    if state == FASE1:
+    if state == PLAY:
         # ----- Trata eventos
         for event in pygame.event.get():
             # ----- Verifica consequências
             if event.type == pygame.QUIT:
-                state = DONE
+                state = QUIT
             if event.type == pygame.KEYDOWN:
                 # Dependendo da tecla, altera a velocidade.
-                keys_down[event.key] = True
+                
                 if event.key == pygame.K_LEFT:
 
 hits=
