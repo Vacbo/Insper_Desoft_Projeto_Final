@@ -19,7 +19,8 @@ bolinha_height=82
 score_line_height=116
 
 INIT=0
-PLAY=1
-SCORE=2
-QUIT=3
-GAMEOVER=4
+INSTRUCTIONS=1
+PLAY=2
+SCORE=3
+QUIT=4
+GAMEOVER=5
