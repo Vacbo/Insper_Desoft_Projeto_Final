@@ -17,36 +17,7 @@ def Timing(tempo_de_duracao):
 
 # ----- Inicia estruturas de dados
 # Definindo os novos tipos
-class Bolinha(sprite.Sprite):
-    def __init__(self, img):
-        # Construtor da classe mãe (Sprite).
-        pygame.sprite.Sprite.__init__(self)
-        self.imgs=[]
-        self.imgs.append(pygame.image.load('sprites/input_r.png').convert_alpha())
-        self.image=pygame.sprites['bolinha2']
-        self.mask=pygame.mask.from_surface(self.image)
-        self.rect=self.image.get_rect()
-        self.rect.x = 640
-        self.rect.y = 310
-        self.speedx = -5
-    def update(self):
-        # Atualizando a posição do bolinha
-        self.rect.x += self.speedx
-        # Se a bolinha passar do final da tela, some
-        ''' if self.rect.left > 1280:
-            self.remove()'''
 
-class BolinhaPlayer(sprite.Sprite):
-    def __init__(self,img):
-        # Construtor da classe mãe (Sprite).
-        pygame.sprite.Sprite.__init__(self)
-        self.imgs=[]
-        self.imgs.append(pygame.image.load('sprites/input_judge.png').convert_alpha())
-        self.image=pygame.sprites['bolinha3']
-        self.mask=pygame.mask.from_surface(self.image)
-        self.rect=self.image.get_rect()
-        self.rect.x=350
-        self.rect.y=310
 
 game= True
 ## Variável para o ajuste de velocidade
