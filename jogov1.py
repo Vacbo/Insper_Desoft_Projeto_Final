@@ -85,7 +85,6 @@ while state != QUIT:
     # window.fill((255,255,255))
     # bolinha_vermelha1.update()        
     # window.blit(bolinha_vermelha1.image,bolinha_vermelha1.rect)
-    pygame.display.update()
     if state == PLAY:
         # ----- Trata eventos
         for event in pygame.event.get():
