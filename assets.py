@@ -16,3 +16,5 @@ def carrega_assets():
     assets['background'] = pygame.transform.scale(assets['background'], (WIDTH, HEIGHT))
     assets['score_line'] = pygame.image.load(os.path.join(SPRITES_PATH, 'move_line.png')).convert_alpha()
     assets['score_line'] = pygame.transform.scale(assets['background'], (WIDTH, score_line_height))
+
+    return assets
