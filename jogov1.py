@@ -51,11 +51,11 @@ all_players.add(player1)
 all_sprites.add(player2)
 all_players.add(player2)
 
-for i in range(Timing_azul()):
+for i in range(2):
     all_sprites.add(inimigo1)
     bolinhas_azuis.add(inimigo1)
 
-for i in range(Timing_vermelha()):
+for i in range(2):
     all_sprites.add(inimigo2)
     bolinhas_vermelhas.add(inimigo2)
 
@@ -93,8 +93,9 @@ while state != QUIT:
                 if event.key == pygame.K_c:
                     state = CREDITS
 
-        window.fill(0,0,0)
         window.blit(assets['menu'], init_rect)
+        # Depois de desenhar tudo, inverte o display.
+        pygame.display.flip()
 
     #Tela de instruções
     if state == INSTRUCTIONS:
@@ -107,6 +108,7 @@ while state != QUIT:
                 if event.key == pygame.K_ESCAPE:
                     state = INIT
         window.blit(assets['HTP'], init_rect)
+        pygame.display.flip()
 
     if state == CREDITS:
             # ----- Trata eventos
@@ -117,8 +119,8 @@ while state != QUIT:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     state = INIT
-        window.fill(0,0,0)
         window.blit(assets['credits'], init_rect)
+        pygame.display.flip()
 
     if state == PLAY:
             # ----- Trata eventos
@@ -141,8 +143,16 @@ while state != QUIT:
         hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
         if len(hits) == 1:
             score += 10
+        hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, pygame.sprite.collide_mask)
+        if len(hits) == 1:
+            score += 10
+        if clock == 57600:
+            if score > 258:
+                text_surface1 = assets['score_font'].render("VOCÊ GANHOU", True, (50, 255, 255))
+            else:
+                text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
+
             # ----- Gera saídas
-        window.fill((200, 200, 200))  # Preenche com a cor branca
         window.blit(assets['background'],(0,0))
 
         text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
@@ -154,6 +164,6 @@ while state != QUIT:
         all_sprites.update()
 
         # ----- Atualiza estado do jogo
-        pygame.display.update()  # Mostra o novo frame para o jogador
+        pygame.display.flip()
 
 pygame.quit()

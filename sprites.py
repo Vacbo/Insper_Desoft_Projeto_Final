@@ -1,5 +1,6 @@
 import pygame
 from config import *
+from assets import *
 
 #definindo uma classe para cada tipo de bolinha
 class bolinha_vermelha(pygame.sprite.Sprite):
