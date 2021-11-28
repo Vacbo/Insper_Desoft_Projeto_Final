@@ -16,5 +16,12 @@ def carrega_assets():
     assets['background'] = pygame.transform.scale(assets['background'], (WIDTH, HEIGHT))
     assets['score_line'] = pygame.image.load(os.path.join(SPRITES_PATH, 'move_line.png')).convert_alpha()
     assets['score_line'] = pygame.transform.scale(assets['background'], (WIDTH, score_line_height))
+    assets['credits'] = pygame.image.load(os.path.join(SPRITES_PATH, 'credits.png')).convert_alpha()
+    assets['credits'] = pygame.transform.scale(assets['credits'], (WIDTH, HEIGHT))
+    assets['HTP'] = pygame.image.load(os.path.join(SPRITES_PATH, 'howtoplay.png')).convert_alpha()
+    assets['HTP'] = pygame.transform.scale(assets['HTP'], (WIDTH, HEIGHT))
+    assets['menu'] = pygame.image.load(os.path.join(SPRITES_PATH, 'menu.png')).convert_alpha()
+    assets['menu'] = pygame.transform.scale(assets['menu'], (WIDTH, HEIGHT))
+    assets["score_font"] = pygame.font.Font('assets/lunchds.ttf', 50)
 
     return assets
