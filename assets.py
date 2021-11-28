@@ -22,6 +22,6 @@ def carrega_assets():
     assets['HTP'] = pygame.transform.scale(assets['HTP'], (WIDTH, HEIGHT))
     assets['menu'] = pygame.image.load(os.path.join(SPRITES_PATH, 'menu.png')).convert_alpha()
     assets['menu'] = pygame.transform.scale(assets['menu'], (WIDTH, HEIGHT))
-    assets["score_font"] = pygame.font.Font('assets/lunchds.ttf', 50)
+    assets["score_font"] = pygame.font.Font(os.path.join(FONT_PATH, 'lunchds.ttf'), 50)
 
     return assets
