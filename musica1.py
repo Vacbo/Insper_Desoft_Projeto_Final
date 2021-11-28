@@ -1,4 +1,4 @@
-def timing_musica_1():
+def timing_player_musica_1():
     dic_timing_player = {}
     dic_timing_player[14400] = 'vermelho'
     dic_timing_player[15600] = 'vermelho'
@@ -43,6 +43,57 @@ def timing_musica_1():
     dic_timing_player[56700] = 'vermelho'
     dic_timing_player[57300] = 'vermelho'
     dic_timing_player[57600] = 'vermelho'
+
+dic_player=timing_player_musica_1()
+
+def timing_enemy_musica_1():
+    dic_timing_enemy = {}
+    dic_timing_enemy[9600] = 'vermelho'
+    dic_timing_enemy[10800] = 'vermelho'
+    dic_timing_enemy[12000] = 'vermelho'
+    dic_timing_enemy[13200] = 'vermelho'
+    dic_timing_enemy[19200] = 'vermelho'
+    dic_timing_enemy[20400] = 'vermelho'
+    dic_timing_enemy[21000] = 'vermelho'
+    dic_timing_enemy[21600] = 'vermelho'
+    dic_timing_enemy[22200] = 'vermelho'
+    dic_timing_enemy[22800] = 'vermelho'
+    dic_timing_enemy[28800] = 'vermelho'
+    dic_timing_enemy[30000] = 'vermelho'
+    dic_timing_enemy[30600] = 'vermelho'
+    dic_timing_enemy[30900] = 'vermelho'
+    dic_timing_enemy[31200] = 'vermelho'
+    dic_timing_enemy[31800] = 'vermelho'
+    dic_timing_enemy[32100] = 'vermelho'
+    dic_timing_enemy[32400] = 'vermelho'
+    dic_timing_enemy[33000] = 'vermelho'
+    dic_timing_enemy[33300] = 'vermelho'
+    dic_timing_enemy[38400] = 'vermelho'
+    dic_timing_enemy[39300] = 'vermelho'
+    dic_timing_enemy[39900] = 'vermelho'
+    dic_timing_enemy[40350] = 'vermelho'
+    dic_timing_enemy[40800] = 'vermelho'
+    dic_timing_enemy[41700] = 'vermelho'
+    dic_timing_enemy[42300] = 'vermelho'
+    dic_timing_enemy[42750] = 'vermelho'
+    dic_timing_enemy[48000] = 'vermelho'
+    dic_timing_enemy[48300] = 'vermelho'
+    dic_timing_enemy[48450] = 'vermelho'
+    dic_timing_enemy[48750] = 'vermelho'
+    dic_timing_enemy[49050] = 'vermelho'
+    dic_timing_enemy[49350] = 'vermelho'
+    dic_timing_enemy[49500] = 'vermelho'
+    dic_timing_enemy[49800] = 'vermelho'
+    dic_timing_enemy[50100] = 'vermelho'
+    dic_timing_enemy[52800] = 'vermelho'
+    dic_timing_enemy[53100] = 'vermelho'
+    dic_timing_enemy[53400] = 'vermelho'
+    dic_timing_enemy[53850] = 'vermelho'
+    dic_timing_enemy[54150] = 'vermelho'
+    dic_timing_enemy[54300] = 'vermelho'
+    
+dic_enemy=timing_enemy_musica_1()
+    
 
 
 #oponente = 9600, 10800, 12000, 13200, 19200, 20400, 21000, 21600, 22200, 22800, 28800, 30000, 30600, 30900, 31200, 31800, 32100, 32400, 33000, 33300, 38400, 39300, 39900, 40350, 40800, 41700, 42300, 42750, 48000, 48300, 48450, 48750, 49050, 49350, 49500, 49800, 50100, 52800, 53100, 53400, 53850, 54150, 54300
