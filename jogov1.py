@@ -161,7 +161,6 @@ while state != QUIT:
 
         window.blit(text_surface, text_rect)
         all_sprites.draw(window)
-        all_sprites.update()
 
         # ----- Atualiza estado do jogo
         pygame.display.flip()
