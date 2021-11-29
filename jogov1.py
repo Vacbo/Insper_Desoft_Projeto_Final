@@ -121,48 +121,73 @@ while state != QUIT:
                     state = INIT
         window.blit(assets['credits'], init_rect)
         pygame.display.flip()
-
     if state == PLAY:
+        dic_player = timing_player_musica_1()
+        dic_enemy = timing_enemy_musica_1()
+    
+        pygame.mixer.music.play()
+        running=True
+        while running:    
+            clock.tick(FPS)
+            #Contador de tempo decorrido
+            tempo_da_musica = pygame.mixer.music.get_pos()
+            for timing in dic_player:
+                timing_v=Timing_vermelha(timing)
+                timing_a=Timing_azul(timing)
+                if tempo_da_musica >= timing_v:
+                    if dic_player[timing] == 'vermelho':
+                        bv=bolinha_vermelha(assets)
+                        all_bolinhas.add(bv)
+                        bolinhas_vermelhas.add(bv)
+                        all_sprites.add(bv)
+                    if dic_player[timing] == 'azul':
+                        ba=bolinha_azul(assets)
+                        all_bolinhas.add(ba)
+                        bolinhas_azuis.add(ba)
+                        all_sprites.add(ba)
+                    #para evitar erros
+                    dic_player[timing]='n repete'
+    
             # ----- Trata eventos
-        for event in pygame.event.get():
-            # ----- Verifica consequências
-            if event.type == pygame.QUIT:
-                state = QUIT
-            if event.type == pygame.KEYDOWN:
-                #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
-                if event.key == pygame.K_d or event.key == pygame.K_k:
-                    all_sprites.add(player1)
-                if event.key == pygame.K_f or event.key == pygame.K_j:
-                    all_sprites.add(player2)
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_d or event.key == pygame.K_k:
-                    all_sprites.remove(player1)
-                if event.key == pygame.K_f or event.key == pygame.K_j:
-                    all_sprites.remove(player2)
+            for event in pygame.event.get():
+                # ----- Verifica consequências
+                if event.type == pygame.QUIT:
+                    state = QUIT
+                if event.type == pygame.KEYDOWN:
+                    #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
+                    if event.key == pygame.K_d or event.key == pygame.K_k:
+                        all_sprites.add(player1)
+                    if event.key == pygame.K_f or event.key == pygame.K_j:
+                        all_sprites.add(player2)
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_d or event.key == pygame.K_k:
+                        all_sprites.remove(player1)
+                    if event.key == pygame.K_f or event.key == pygame.K_j:
+                        all_sprites.remove(player2)
 
-        hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
-        if len(hits) == 1:
-            score += 10
-        hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, pygame.sprite.collide_mask)
-        if len(hits) == 1:
-            score += 10
-        if clock == 57600:
-            if score > 258:
-                text_surface1 = assets['score_font'].render("VOCÊ GANHOU", True, (50, 255, 255))
-            else:
-                text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
+            hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
+            if len(hits) == 1:
+                score += 10
+            hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, pygame.sprite.collide_mask)
+            if len(hits) == 1:
+                score += 10
+            if clock == 57600:
+                if score > 258:
+                    text_surface1 = assets['score_font'].render("VOCÊ GANHOU", True, (50, 255, 255))
+                else:
+                    text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
 
-            # ----- Gera saídas
-        window.blit(assets['background'],(0,0))
+                # ----- Gera saídas
+            window.blit(assets['background'],(0,0))
 
-        text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
-        text_rect = text_surface.get_rect()
-        text_rect.midtop = (WIDTH / 2,  10)
+            text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
+            text_rect = text_surface.get_rect()
+            text_rect.midtop = (WIDTH / 2,  10)
 
-        window.blit(text_surface, text_rect)
-        all_sprites.draw(window)
+            window.blit(text_surface, text_rect)
+            all_sprites.draw(window)
 
-        # ----- Atualiza estado do jogo
-        pygame.display.flip()
+            # ----- Atualiza estado do jogo
+            pygame.display.flip()
 
 pygame.quit()

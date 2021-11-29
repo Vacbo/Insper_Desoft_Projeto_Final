@@ -43,6 +43,7 @@ def timing_player_musica_1():
     dic_timing_player[56700] = 'vermelho'
     dic_timing_player[57300] = 'vermelho'
     dic_timing_player[57600] = 'vermelho'
+    return dic_timing_player
 
 dic_player=timing_player_musica_1()
 
@@ -91,7 +92,7 @@ def timing_enemy_musica_1():
     dic_timing_enemy[53850] = 'vermelho'
     dic_timing_enemy[54150] = 'vermelho'
     dic_timing_enemy[54300] = 'vermelho'
-    
+    return dic_timing_enemy
 dic_enemy=timing_enemy_musica_1()
     
 

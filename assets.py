@@ -27,5 +27,6 @@ def carrega_assets():
     assets["score_font"] = pygame.font.Font(os.path.join(FONT_PATH, 'lunchds.ttf'), 50)
 
     #Musica
-
+    pygame.mixer.music.load(os.path.join(SOUND_PATH, 'levelone.wav'))
+    pygame.mixer.music.set_volume(0.5)
     return assets
