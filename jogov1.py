@@ -51,14 +51,6 @@ all_players.add(player1)
 all_sprites.add(player2)
 all_players.add(player2)
 
-for i in range(2):
-    all_sprites.add(inimigo1)
-    bolinhas_azuis.add(inimigo1)
-
-for i in range(2):
-    all_sprites.add(inimigo2)
-    bolinhas_vermelhas.add(inimigo2)
-
 keys_down = {}
 
 score = 0
@@ -73,13 +65,12 @@ state = INIT
 
 
 #Jogo Oficial
+
 while state != QUIT:
-        
     if state == INIT:
         ## Variável para o ajuste de velocidade
         clock = pygame.time.Clock()
 
-        clock.tick(FPS)
 
         for event in pygame.event.get():
             # ----- Verifica consequências
@@ -124,16 +115,14 @@ while state != QUIT:
     if state == PLAY:
         dic_player = timing_player_musica_1()
         dic_enemy = timing_enemy_musica_1()
-    
+
         pygame.mixer.music.play()
         running=True
         while running:    
-            clock.tick(FPS)
-            #Contador de tempo decorrido
+                        #Contador de tempo decorrido
             tempo_da_musica = pygame.mixer.music.get_pos()
             for timing in dic_player:
                 timing_v=Timing_vermelha(timing)
-                timing_a=Timing_azul(timing)
                 if tempo_da_musica >= timing_v:
                     if dic_player[timing] == 'vermelho':
                         bv=bolinha_vermelha(assets)
@@ -147,23 +136,41 @@ while state != QUIT:
                         all_sprites.add(ba)
                     #para evitar erros
                     dic_player[timing]='n repete'
+        clock.tick(FPS)
+
+        for event in pygame.event.get():
+            # ----- Verifica consequências
+            if event.type == pygame.QUIT:
+                state = QUIT
+                running = False
+            if event.type == pygame.KEYDOWN:
+                #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
+                if event.key == pygame.K_d or event.key == pygame.K_k:
+                    all_sprites.add(player1)
+                if event.key == pygame.K_f or event.key == pygame.K_j:
+                    all_sprites.add(player2)
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_d or event.key == pygame.K_k:
+                    all_sprites.remove(player1)
+                if event.key == pygame.K_f or event.key == pygame.K_j:
+                    all_sprites.remove(player2)
     
             # ----- Trata eventos
-            for event in pygame.event.get():
-                # ----- Verifica consequências
-                if event.type == pygame.QUIT:
-                    state = QUIT
-                if event.type == pygame.KEYDOWN:
-                    #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
-                    if event.key == pygame.K_d or event.key == pygame.K_k:
-                        all_sprites.add(player1)
-                    if event.key == pygame.K_f or event.key == pygame.K_j:
-                        all_sprites.add(player2)
-                if event.type == pygame.KEYUP:
-                    if event.key == pygame.K_d or event.key == pygame.K_k:
-                        all_sprites.remove(player1)
-                    if event.key == pygame.K_f or event.key == pygame.K_j:
-                        all_sprites.remove(player2)
+        for event in pygame.event.get():
+            # ----- Verifica consequências
+            if event.type == pygame.QUIT:
+                state = QUIT
+            if event.type == pygame.KEYDOWN:
+                #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
+                if event.key == pygame.K_d or event.key == pygame.K_k:
+                    all_sprites.add(player1)
+                if event.key == pygame.K_f or event.key == pygame.K_j:
+                    all_sprites.add(player2)
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_d or event.key == pygame.K_k:
+                    all_sprites.remove(player1)
+                if event.key == pygame.K_f or event.key == pygame.K_j:
+                    all_sprites.remove(player2)
 
             hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
             if len(hits) == 1:
@@ -187,7 +194,8 @@ while state != QUIT:
             window.blit(text_surface, text_rect)
             all_sprites.draw(window)
 
+
             # ----- Atualiza estado do jogo
-            pygame.display.flip()
+
 
 pygame.quit()

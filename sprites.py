@@ -20,7 +20,7 @@ class bolinha_vermelha(pygame.sprite.Sprite):
         self.rect.y = HEIGHT/2
         self.speedx = -3
     
-    def update(self, assets):
+    def update(self):
         #Bolinha movimentando
         self.rect.x +=self.speedx
         
@@ -57,7 +57,7 @@ class bolinha_azul(pygame.sprite.Sprite):
         self.rect.y = HEIGHT/2
         self.speedx = -3
     
-    def update(self, assets):
+    def update(self):
         #Bolinha movimentando
         self.rect.x +=self.speedx
         
