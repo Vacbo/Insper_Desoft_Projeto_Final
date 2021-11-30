@@ -130,7 +130,8 @@ while state != QUIT:
 
         pygame.mixer.music.play()
         running=True
-        while running:    
+        while running:
+            clock.tick(FPS)    
             #Contador de tempo decorrido
             tempo_da_musica = pygame.mixer.music.get_pos()
             for timing in dic_player:
@@ -141,25 +142,33 @@ while state != QUIT:
                         all_bolinhas.add(bv)
                         bolinhas_vermelhas.add(bv)
                         all_sprites.add(bv)
+                    
                     elif dic_player[timing] == 'azul':
                         ba=bolinha_azul(assets)
                         all_bolinhas.add(ba)
                         bolinhas_azuis.add(ba)
                         all_sprites.add(ba)
                         # para evitar erros  
-                        dic_player[timing]='n repete'
-
+                    
+                    dic_player[timing]='n repete'
+            
+            clock.tick(FPS)
+            
             for event in pygame.event.get():
                 # ----- Verifica consequências
                 if event.type == pygame.QUIT:
                     state = QUIT
                     running = False
+
                 if event.type == pygame.KEYDOWN:
+                    keys_down[event.key] = True
                     #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
                     if event.key == pygame.K_d or event.key == pygame.K_k:
                         all_sprites.add(player1)
+
                     if event.key == pygame.K_f or event.key == pygame.K_j:
                         all_sprites.add(player2)
+
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_d or event.key == pygame.K_k:
                         all_sprites.remove(player1)
@@ -179,18 +188,19 @@ while state != QUIT:
                         text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
 
                     # ----- Gera saídas
-                window.blit(assets['background'],(0,0))
 
                 text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
                 text_rect = text_surface.get_rect()
                 text_rect.midtop = (WIDTH / 2,  10)
 
+                all_sprites.update(assets)
+                window.fill((0, 0, 255))
+                window.blit(assets['background'],(0,0))
                 window.blit(text_surface, text_rect)
                 all_sprites.draw(window)
-                all_sprites.update(assets)
                 pygame.display.update()  # Mostra o novo frame para o jogador
+                clock.tick(FPS)
 
-                pygame.display.flip()
 
 
             # ----- Atualiza estado do jogo

@@ -16,12 +16,13 @@ class bolinha_vermelha(pygame.sprite.Sprite):
         self.image= assets['vermelho']
         self.rect = self.image.get_rect()
         self.rect.x = WIDTH
-        self.rect.y = HEIGHT/2
-        self.speedx = -3
+        self.rect.centery = HEIGHT/2
+        self.speedx = 3
+        self.speedy = 3
     
     def update(self,assets):
         #Bolinha movimentando
-        self.rect.x +=self.speedx
+        self.rect.x -= self.speedx
         
         # #quando a bolnha estiver perto da bolinha cinza o jogador ja pode apertar
         # if self.rect.centerx >=WIDTH/3-1.15*bolinha_width:
