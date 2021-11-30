@@ -15,9 +15,9 @@ class bolinha_vermelha(pygame.sprite.Sprite):
         self.assets = assets 
         self.image= assets['vermelho']
         self.rect = self.image.get_rect()
-        self.rect.x = WIDTH
+        self.rect.centerx = WIDTH+(bolinha_width/2)
         self.rect.centery = HEIGHT/2
-        self.speedx = 3
+        self.speedx = 2.05
         self.speedy = 3
     
     def update(self,assets):

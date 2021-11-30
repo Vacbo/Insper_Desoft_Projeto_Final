@@ -21,7 +21,7 @@ def Timing_azul(tempo_de_duracao):
     
 def Timing_vermelha(tempo_de_duracao):
     tempo_de_duracao=int(tempo_de_duracao)
-    tempo_para_criar_bolinha=tempo_de_duracao-1585
+    tempo_para_criar_bolinha=tempo_de_duracao-14400
     return tempo_para_criar_bolinha
 # ----- Inicia estruturas de dados
 # Definindo os novos tipos
@@ -174,6 +174,7 @@ while state != QUIT:
                         all_sprites.remove(player1)
                     if event.key == pygame.K_f or event.key == pygame.K_j:
                         all_sprites.remove(player2)
+                        player2.kill()
 
             hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
             if len(hits) == 1:
