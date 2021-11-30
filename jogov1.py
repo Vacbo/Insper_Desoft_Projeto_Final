@@ -175,31 +175,31 @@ while state != QUIT:
                     if event.key == pygame.K_f or event.key == pygame.K_j:
                         all_sprites.remove(player2)
 
-                hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
-                if len(hits) == 1:
-                    score += 10
-                hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, pygame.sprite.collide_mask)
-                if len(hits) == 1:
-                    score += 10
-                if clock == 57600:
-                    if score > 258:
-                        text_surface1 = assets['score_font'].render("VOCÊ GANHOU", True, (50, 255, 255))
-                    else:
-                        text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
+            hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
+            if len(hits) == 1:
+                score += 10
+            hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, pygame.sprite.collide_mask)
+            if len(hits) == 1:
+                score += 10
+            if clock == 57600:
+                if score > 258:
+                    text_surface1 = assets['score_font'].render("VOCÊ GANHOU", True, (50, 255, 255))
+                else:
+                    text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
 
-                    # ----- Gera saídas
+                # ----- Gera saídas
 
-                text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
-                text_rect = text_surface.get_rect()
-                text_rect.midtop = (WIDTH / 2,  10)
+            text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
+            text_rect = text_surface.get_rect()
+            text_rect.midtop = (WIDTH / 2,  10)
 
-                all_sprites.update(assets)
-                window.fill((0, 0, 255))
-                window.blit(assets['background'],(0,0))
-                window.blit(text_surface, text_rect)
-                all_sprites.draw(window)
-                pygame.display.update()  # Mostra o novo frame para o jogador
-                clock.tick(FPS)
+            all_sprites.update(assets)
+            window.fill((0, 0, 255))
+            window.blit(assets['background'],(0,0))
+            window.blit(text_surface, text_rect)
+            all_sprites.draw(window)
+            pygame.display.update()  # Mostra o novo frame para o jogador
+            clock.tick(FPS)
 
 
 
