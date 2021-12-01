@@ -9,9 +9,9 @@ class bolinha_vermelha(pygame.sprite.Sprite):
         self.assets = assets 
         self.image= assets['vermelho']
         self.rect = self.image.get_rect()
-        self.rect.centerx = WIDTH+(bolinha_width/2)
+        self.rect.x = WIDTH
         self.rect.centery = HEIGHT/2
-        self.speedx = 30
+        self.speedx = 18
         self.speedy = 3
     
     def update(self,assets):
@@ -26,9 +26,9 @@ class bolinha_azul(pygame.sprite.Sprite):
         self.assets = assets 
         self.image= assets['azul']
         self.rect = self.image.get_rect()
-        self.rect.centerx = WIDTH+(bolinha_width/2)
+        self.rect.x = WIDTH
         self.rect.centery = HEIGHT/2
-        self.speedx = 30
+        self.speedx = 18
         self.speedy = 3
     
     def update(self,assets):
@@ -43,7 +43,7 @@ class bolinha_cinza(pygame.sprite.Sprite):
         
         self.image = assets['cinza']
         self.rect = self.image.get_rect()
-        self.rect.centerx = WIDTH/3+bolinha_width
+        self.rect.x = WIDTH/4
         self.rect.centery = HEIGHT/2
 
 class Move_line(pygame.sprite.Sprite):

@@ -16,12 +16,12 @@ pygame.mixer.music.set_volume(0.4)
 #funcão que recebe qual bolinha deve ser pressionada e devolve o tempo que a bolinha tem que ser criada
 def Timing_azul(tempo_de_duracao):
     tempo_de_duracao=int(tempo_de_duracao)
-    tempo_para_criar_bolinha=tempo_de_duracao-1585
+    tempo_para_criar_bolinha=tempo_de_duracao-950
     return tempo_para_criar_bolinha
     
 def Timing_vermelha(tempo_de_duracao):
     tempo_de_duracao=int(tempo_de_duracao)
-    tempo_para_criar_bolinha=tempo_de_duracao-14400
+    tempo_para_criar_bolinha=tempo_de_duracao-950
     return tempo_para_criar_bolinha
 # ----- Inicia estruturas de dados
 # Definindo os novos tipos
@@ -125,8 +125,7 @@ while state != QUIT:
         while running:
             hitbox1 = False
             hitbox2 = False
-
-            clock.tick(FPS)    
+   
             #Contador de tempo decorrido
             tempo_da_musica = pygame.mixer.music.get_pos()
             for timing in dic_player:
@@ -188,7 +187,7 @@ while state != QUIT:
                 hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True)
                 if len(hits) == 1:
                     score += 10
-            if tempo_da_musica > 45600:
+            if tempo_da_musica > 60000:
                 if score > 258:
                     text_surface1 = assets['score_font'].render("VOCE GANHOU", True, (0, 255, 255))
                     text_rect = text_surface1.get_rect()
@@ -197,7 +196,7 @@ while state != QUIT:
                     text_surface1 = assets['score_font'].render("VOCE PERDEU", True, (0, 255, 255))
                     text_rect = text_surface1.get_rect()
                     text_rect.midtop = (WIDTH / 2,  10)
-            if tempo_da_musica > 48500:
+            if tempo_da_musica > 62000:
                 pygame.mixer.music.stop()
                 running = False
                 state = INIT
@@ -206,9 +205,10 @@ while state != QUIT:
             text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
             text_rect = text_surface.get_rect()
             text_rect.midtop = ((WIDTH-150)+20,  10)
+            
+            # ----- Atualiza estado do jogo
 
             all_sprites.update(assets)
-            window.fill((0, 0, 255))
             window.blit(assets['background'],(0,0))
             window.blit(text_surface, text_rect)
             window.blit(text_surface1, text_rect1)
@@ -216,11 +216,4 @@ while state != QUIT:
             move_lines.draw(window)
             all_sprites.draw(window)
             pygame.display.update()  # Mostra o novo frame para o jogador
-            clock.tick(FPS)
-
-
-
-            # ----- Atualiza estado do jogo
-
-
 pygame.quit()
