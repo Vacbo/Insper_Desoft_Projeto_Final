@@ -11,6 +11,8 @@
 
 A musica e as sprites foram desenvolvidas por um dos integrantes do grupo.
 ![Captura_de_Tela_871](https://user-images.githubusercontent.com/53411412/144292250-6b75a890-7238-4313-9ea6-fdb1632847d2.png)
+
+
 ![Captura_de_Tela_872](https://user-images.githubusercontent.com/53411412/144292291-5c97504f-f7e7-43e0-afce-0c21a2e9246b.png)
 
 **Desenvolvedores:**
