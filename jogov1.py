@@ -34,6 +34,7 @@ bolinhas_vermelhas = pygame.sprite.Group()
 bolinhas_azuis = pygame.sprite.Group()
 all_bolinhas = pygame.sprite.Group()
 all_players = pygame.sprite.Group()
+move_lines = pygame.sprite.Group()
 
 groups = {}
 groups['bolinhas_vermelhas'] = bolinhas_vermelhas
@@ -45,11 +46,13 @@ player1 = bolinha_cinza(assets)
 player2 = bolinha_cinza(assets)
 inimigo1 = bolinha_azul(assets)
 inimigo2 = bolinha_vermelha(assets)
+move_line = Move_line(assets)
 
 all_sprites.add(player1)
 all_players.add(player1)
 all_sprites.add(player2)
 all_players.add(player2)
+move_lines.add(move_line)
 
 keys_down = {}
 
@@ -172,12 +175,16 @@ while state != QUIT:
             text_rect1 = text_surface1.get_rect()
             text_rect1.midtop = (WIDTH / 2,  10)
             if hitbox1:
+                explosion_b = Explosion_b(player1.rect.center, assets)
+                all_sprites.add(explosion_b)
                 hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True)
                 if len(hits) == 1:
                     score += 10
                 if len(hits) > 1:
                     score +=20  
             if hitbox2:
+                explosion_r = Explosion_r(player2.rect.center, assets)
+                all_sprites.add(explosion_r)
                 hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True)
                 if len(hits) == 1:
                     score += 10
@@ -206,6 +213,7 @@ while state != QUIT:
             window.blit(text_surface, text_rect)
             window.blit(text_surface1, text_rect1)
 
+            move_lines.draw(window)
             all_sprites.draw(window)
             pygame.display.update()  # Mostra o novo frame para o jogador
             clock.tick(FPS)
