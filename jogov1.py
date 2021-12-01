@@ -71,6 +71,8 @@ while state != QUIT:
         ## Variável para o ajuste de velocidade
         clock = pygame.time.Clock()
         clock.tick(FPS)
+        dic_player=timing_player_musica_1()
+        score = 0
 
 
         for event in pygame.event.get():
@@ -170,13 +172,13 @@ while state != QUIT:
             text_rect1 = text_surface1.get_rect()
             text_rect1.midtop = (WIDTH / 2,  10)
             if hitbox1:
-                hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True,collided =  pygame.sprite.collide_circle)
+                hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True)
                 if len(hits) == 1:
                     score += 10
                 if len(hits) > 1:
                     score +=20  
             if hitbox2:
-                hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, collided = pygame.sprite.collide_circle)
+                hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True)
                 if len(hits) == 1:
                     score += 10
             if tempo_da_musica > 45600:
@@ -188,7 +190,7 @@ while state != QUIT:
                     text_surface1 = assets['score_font'].render("VOCE PERDEU", True, (0, 255, 255))
                     text_rect = text_surface1.get_rect()
                     text_rect.midtop = (WIDTH / 2,  10)
-            if tempo_da_musica > 48000:
+            if tempo_da_musica > 48500:
                 pygame.mixer.music.stop()
                 running = False
                 state = INIT
