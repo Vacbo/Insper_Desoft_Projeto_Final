@@ -12,12 +12,12 @@
 A musica foi desenvolvida por um dos integrantes do grupo.
 
 **Desenvolvedores:**
-    -Guilherme-s-m, Guilherme dos Santos Martins
-    -glindenberg, Gustavo Lindenberg
-    -Vacbo, Pedro Portella
+ - Guilherme-s-m, Guilherme dos Santos Martins
+ - glindenberg, Gustavo Lindenberg
+ - Vacbo, Pedro Portella
     
 OBS: O integrante Gustavo não teve grande quantidade de participações pois não está em sintonia com o curso, e portanto não está tendo grandes avanços na matéria de design de software, por isso pedimos para que entenda que a nota de participação precisa ser dividida entre apenas os outros dois integrantes.
 
 **Vídeo**
--https://youtu.be/N4dx4iqgEBI
+ - https://youtu.be/N4dx4iqgEBI
 
