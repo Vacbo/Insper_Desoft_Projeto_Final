@@ -51,16 +51,6 @@ all_players.add(player1)
 all_sprites.add(player2)
 all_players.add(player2)
 
-# for i in range(50):
-#     bv=bolinha_vermelha(assets)
-#     all_bolinhas.add(bv)
-#     all_sprites.add(bv)
-
-# for i in range(50):
-#     ba=bolinha_vermelha(assets)
-#     all_bolinhas.add(ba)
-#     all_sprites.add(ba)
-
 keys_down = {}
 
 score = 0
@@ -125,12 +115,12 @@ while state != QUIT:
         pygame.display.flip()
     if state == PLAY:
 
-        # dic_player = timing_player_musica_1()
-        # dic_enemy = timing_enemy_musica_1()
-
         pygame.mixer.music.play()
         running=True
         while running:
+            hitbox1 = False
+            hitbox2 = False
+
             clock.tick(FPS)    
             #Contador de tempo decorrido
             tempo_da_musica = pygame.mixer.music.get_pos()
@@ -164,40 +154,56 @@ while state != QUIT:
                     keys_down[event.key] = True
                     #Verifica o player a ser selecionado, player1 interaje com bolinha azul e player2 com bolinha vermelha
                     if event.key == pygame.K_d or event.key == pygame.K_k:
-                        all_sprites.add(player1)
+                        hitbox1 =True
 
                     if event.key == pygame.K_f or event.key == pygame.K_j:
-                        all_sprites.add(player2)
+                        hitbox2 =True
 
                 if event.type == pygame.KEYUP:
                     if event.key == pygame.K_d or event.key == pygame.K_k:
-                        all_sprites.remove(player1)
+                        hitbox1 =False
+
                     if event.key == pygame.K_f or event.key == pygame.K_j:
-                        all_sprites.remove(player2)
-                        player2.kill()
+                        hitbox2 =False
 
-            hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True, pygame.sprite.collide_mask)
-            if len(hits) == 1:
-                score += 10
-            hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, pygame.sprite.collide_mask)
-            if len(hits) == 1:
-                score += 10
-            if clock == 57600:
+            text_surface1 =  assets['score_font'].render("TAIKO NO CHI", True, (0, 255, 255))
+            text_rect1 = text_surface1.get_rect()
+            text_rect1.midtop = (WIDTH / 2,  10)
+            if hitbox1:
+                hits = pygame.sprite.spritecollide(player1, bolinhas_azuis, True,collided =  pygame.sprite.collide_circle)
+                if len(hits) == 1:
+                    score += 10
+                if len(hits) > 1:
+                    score +=20  
+            if hitbox2:
+                hits = pygame.sprite.spritecollide(player2, bolinhas_vermelhas, True, collided = pygame.sprite.collide_circle)
+                if len(hits) == 1:
+                    score += 10
+            if tempo_da_musica > 45600:
                 if score > 258:
-                    text_surface1 = assets['score_font'].render("VOCÊ GANHOU", True, (50, 255, 255))
+                    text_surface1 = assets['score_font'].render("VOCE GANHOU", True, (0, 255, 255))
+                    text_rect = text_surface1.get_rect()
+                    text_rect.midtop = (WIDTH / 2,  10)
                 else:
-                    text_surface1 = assets['score_font'].render("VOCÊ PERDEU", True, (50, 255, 255))
-
+                    text_surface1 = assets['score_font'].render("VOCE PERDEU", True, (0, 255, 255))
+                    text_rect = text_surface1.get_rect()
+                    text_rect.midtop = (WIDTH / 2,  10)
+            if tempo_da_musica > 48000:
+                pygame.mixer.music.stop()
+                running = False
+                state = INIT
                 # ----- Gera saídas
 
             text_surface = assets['score_font'].render("Pontos:{:01d}".format(score), True, (0, 255, 255))
             text_rect = text_surface.get_rect()
-            text_rect.midtop = (WIDTH / 2,  10)
+            text_rect.midtop = ((WIDTH-150)+20,  10)
 
             all_sprites.update(assets)
             window.fill((0, 0, 255))
             window.blit(assets['background'],(0,0))
             window.blit(text_surface, text_rect)
+            window.blit(text_surface1, text_rect1)
+
             all_sprites.draw(window)
             pygame.display.update()  # Mostra o novo frame para o jogador
             clock.tick(FPS)
