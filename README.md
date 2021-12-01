@@ -10,6 +10,7 @@
    Quando iniciar o jogo havera uma tela de inicio, que ao apertar x voce abrira a tela de instruções, c você abriar a tela de creditos e z para iniciar o jogo. Lembrando que para sair da tela de instrução e da tela de creditos é so apertar a tecla esc.
 
 A musica foi desenvolvida por um dos integrantes do grupo.
+![Captura_de_Tela_871](https://user-images.githubusercontent.com/53411412/144292121-5428d0e6-6316-4da2-9024-42815a42e4c5.png)
 
 **Desenvolvedores:**
  - Guilherme-s-m, Guilherme dos Santos Martins
