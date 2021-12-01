@@ -1,9 +1,49 @@
-def timing_musica_1():
-    dic_timing = {}
-    #falta definir os tempos certinho
-    #ex de como definir o timing 
-    #ex1: dic_timing[2795] = 'vermelho'
-    #ex2: dic_timing[2856] = 'azul'
+def timing_player_musica_1():
+    dic_timing_player = {}
+    dic_timing_player[14400] = 'vermelho'
+    dic_timing_player[15600] = 'azul'
+    dic_timing_player[16800] = 'vermelho'
+    dic_timing_player[18000] = 'azul'
+    dic_timing_player[24000] = 'vermelho'
+    dic_timing_player[25200] = 'azul'
+    dic_timing_player[25800] = 'azul'
+    dic_timing_player[26400] = 'vermelho'
+    dic_timing_player[27000] = 'vermelho'
+    dic_timing_player[27600] = 'azul'
+    dic_timing_player[33600] = 'vermelho'
+    dic_timing_player[34800] = 'azul'
+    dic_timing_player[35400] = 'vermelho'
+    dic_timing_player[35700] = 'vermelho'
+    dic_timing_player[36000] = 'azul'
+    dic_timing_player[36600] = 'vermelho'
+    dic_timing_player[36900] = 'azul'
+    dic_timing_player[37200] = 'azul'
+    dic_timing_player[37800] = 'vermelho'
+    dic_timing_player[38100] = 'vermelho'
+    dic_timing_player[43200] = 'azul'
+    dic_timing_player[44100] = 'azul'
+    dic_timing_player[44700] = 'azul'
+    dic_timing_player[45150] = 'vermelho'
+    dic_timing_player[45600] = 'azul'
+    dic_timing_player[46500] = 'vermelho'
+    dic_timing_player[47100] = 'vermelho'
+    dic_timing_player[47550] = 'vermelho'
+    dic_timing_player[50400] = 'azul'
+    dic_timing_player[50700] = 'azul'
+    dic_timing_player[50850] = 'vermelho'
+    dic_timing_player[51150] = 'azul'
+    dic_timing_player[51450] = 'vermelho'
+    dic_timing_player[51750] = 'vermelho'
+    dic_timing_player[51900] = 'vermelho'
+    dic_timing_player[52200] = 'azul'
+    dic_timing_player[55500] = 'azul'
+    dic_timing_player[55800] = 'azul'
+    dic_timing_player[56250] = 'azul'
+    dic_timing_player[56550] = 'vermelho'
+    dic_timing_player[56700] = 'azul'
+    dic_timing_player[57300] = 'vermelho'
+    dic_timing_player[57600] = 'vermelho'
+    return dic_timing_player
 
-#oponente = 9600, 10800, 12000, 13200, 19200, 20400, 21000, 21600, 22200, 22800, 28800, 30000, 30600, 30900, 31200, 31800, 32100, 32400, 33000, 33300, 38400, 39300, 39900, 40350, 40800, 41700, 42300, 42750, 48000, 48300, 48450, 48750, 49050, 49350, 49500, 49800, 50100, 52800, 53100, 53400, 53850, 54150, 54300
-#player = 14400, 15600, 16800, 18000, 24000, 25200, 25800, 26400, 27000, 27600, 33600, 34800, 35400, 35700, 36000, 36600, 36900, 37200, 37800, 38100, 43200, 44100, 44700, 45150, 45600, 46500, 47100, 47550, 50400, 50700, 50850, 51150, 51450, 51750, 51900, 52200, 52500, 55200, 55500, 55800, 56250, 56550, 56700, 57300, 57600
+dic_player=timing_player_musica_1()
+
