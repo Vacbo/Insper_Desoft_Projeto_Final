@@ -12,7 +12,6 @@ class bolinha_vermelha(pygame.sprite.Sprite):
         self.rect.x = WIDTH
         self.rect.centery = HEIGHT/2
         self.speedx = 18
-        self.speedy = 3
     
     def update(self,assets):
         #Bolinha movimentando
@@ -29,7 +28,6 @@ class bolinha_azul(pygame.sprite.Sprite):
         self.rect.x = WIDTH
         self.rect.centery = HEIGHT/2
         self.speedx = 18
-        self.speedy = 3
     
     def update(self,assets):
         #Bolinha movimentando

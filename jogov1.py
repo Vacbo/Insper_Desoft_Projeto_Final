@@ -14,12 +14,8 @@ pygame.display.set_caption('Taiko no Chi')
 pygame.mixer.music.set_volume(0.4)
 
 #funcão que recebe qual bolinha deve ser pressionada e devolve o tempo que a bolinha tem que ser criada
-def Timing_azul(tempo_de_duracao):
-    tempo_de_duracao=int(tempo_de_duracao)
-    tempo_para_criar_bolinha=tempo_de_duracao-950
-    return tempo_para_criar_bolinha
     
-def Timing_vermelha(tempo_de_duracao):
+def Timing(tempo_de_duracao):
     tempo_de_duracao=int(tempo_de_duracao)
     tempo_para_criar_bolinha=tempo_de_duracao-950
     return tempo_para_criar_bolinha
@@ -129,8 +125,8 @@ while state != QUIT:
             #Contador de tempo decorrido
             tempo_da_musica = pygame.mixer.music.get_pos()
             for timing in dic_player:
-                timing_v=Timing_vermelha(timing)
-                if tempo_da_musica >= timing_v:
+                timing_bolinha=Timing(timing)
+                if tempo_da_musica >= timing_bolinha:
                     if dic_player[timing] == 'vermelho':
                         bv=bolinha_vermelha(assets)
                         all_bolinhas.add(bv)
@@ -180,7 +176,7 @@ while state != QUIT:
                 if len(hits) == 1:
                     score += 10
                 if len(hits) > 1:
-                    score +=20  
+                    score +=len(hits)*10  
             if hitbox2:
                 explosion_r = Explosion_r(player2.rect.center, assets)
                 all_sprites.add(explosion_r)
