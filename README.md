@@ -3,7 +3,7 @@
 **Taiko no Chi**
 
 **Descrição:**
-   Um jogo de ritmo composto por bolinhas em que você deve apertar o botão que está definido nas instruções no momento em que a bolinha azul ou vermelha está em cima da bolinha cinza. As bolinhas saem da direita e vão para a esquerda. 
+   Um jogo de ritmo, inspirado no Friday Night Funkin e Taiko no Tatsujin, composto por bolinhas em que você deve apertar o botão que está definido nas instruções no momento em que a bolinha azul ou vermelha está em cima da bolinha cinza. As bolinhas saem da direita e vão para a esquerda. 
    
    A pontuação funciona assim: quando você apertar a bolinha no momento certo, você ganha 10 pontos, caso você não acerte voce não ganha pontos.
    
