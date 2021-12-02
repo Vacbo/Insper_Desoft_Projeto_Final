@@ -22,11 +22,11 @@ A musica e as sprites foram desenvolvidas por um dos integrantes do grupo.
     
 OBS: O integrante Gustavo não teve grande quantidade de participações pois não está em sintonia com o curso, e portanto não está tendo grandes avanços na matéria de design de software, por isso pedimos para que entenda que a nota de participação precisa ser dividida entre apenas os outros dois integrantes.
 
-**Como rodar o jogo?**:
+**Como rodar o jogo?**
  - Para inicializar o jogo é necessário que você tenha instalado a biblioteca Pygame. Para isso, você deve abrir o seu terminal ou o Anaconda Prompt e digitar: pip install pygame.
  - Depois é so rodar o codigo jogov1.py
 
-**Descrição das pastas**
+**Descrição das pastas:**
  - 'assets.py': Define as sprites, a musica e a animações.
  - 'config.py': Cria algumas variaveis globais que serãoutilizadas para configurar o jogo.
  - 'jogov1.py': Onde esta toda a lógica do jogo. Rode esse código para inicializar o jogo.
